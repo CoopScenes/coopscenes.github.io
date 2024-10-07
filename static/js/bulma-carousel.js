@@ -2305,7 +2305,7 @@ var Translate = function () {
 
 "use strict";
 var defaultOptions = {
-  initialSlide: 0,
+  initialSlide: 3,
   slidesToScroll: 1,
   slidesToShow: 1,
 
