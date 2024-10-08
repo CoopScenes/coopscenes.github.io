@@ -169,19 +169,19 @@
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-steve">
-          <img src="./imgs/FRONT_LEFT.png" alt="Beschreibung des Bildes" style="height: 60%;">
+          <img src="./imgs/FRONT_LEFT.png" alt="Front left view" style="height: 100%;">
         </div>
         <div class="item item-chair-tp">
-          <img src="./imgs/STEREO_LEFT.png" alt="Beschreibung des Bildes" style="height: 60%;">
+          <img src="./imgs/STEREO_LEFT.png" alt="Front view" style="height: 100%;">
         </div>
         <div class="item item-shiba">
-          <img src="./imgs/FRONT_RIGHT.png" alt="Beschreibung des Bildes" style="height: 60%;">
+          <img src="./imgs/FRONT_RIGHT.png" alt="Front right view" style="height: 100%;">
         </div>
         <div class="item item-fullbody">
-          <img src="./imgs/BACK_RIGHT.png" alt="Beschreibung des Bildes" style="height: 60%;">
+          <img src="./imgs/BACK_RIGHT.png" alt="Back right view" style="height: 100%;">
         </div>
         <div class="item item-blueshirt">
-          <img src="./imgs/BACK_LEFT.png" alt="Beschreibung des Bildes" style="height: 60%;">
+          <img src="./imgs/BACK_LEFT.png" alt="Back left view" style="height: 100%;">
         </div>
       </div>
     </div>
@@ -216,60 +216,99 @@
       </div>
     </div>
     <!--/ Abstract. -->
+
+    <!-- Setup Image -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content">
+          <h2 class="title is-3">Setup</h2>
+          <img src="./imgs/setup.png" alt="Dataset setup overview" style="height: 40%;">
+        </div>
+      </div>
+    </div>
+    <!--/ Setup Image -->
+
+    <!-- Setup Description -->
+    <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered">
+        <div class="column is-two-fifths">
+          <div class="content has-text-justified">
+            <h4 class="title is-4">Ego-vehicle (sensor bus):</h4>
+            <p>
+              A stereo camera and a top LiDAR are centrally mounted, with the stereo camera located inside the bus, behind
+              the windshield. The top LiDAR has a 45° horizontal FoV, designed to cover the camera's entire view, including
+              above the horizon. Two additional LiDARs, mounted at the front corners, are angled to cover blind spots.
+              An INS, combining GNSS and IMU data, supports navigation, with RTK correction from the sensor tower for
+              precise positioning.
+            </p>
+          </div>
+        </div>
+        <div class="column is-two-fifths">
+          <div class="content has-text-justified">
+            <h4 class="title is-4">Sensor tower:</h4>
+            <p>
+              The static sensor tower supports interoperability studies with a simple, modular design, featuring a 3-meter
+              pole stabilized by weights. It is powered by batteries and a solar panel and equipped with LTE/5G and a V2X
+              roadside unit for communication. A 360° LiDAR and GNSS antennas are mounted at the top, while two adjustable
+              camera-LiDAR units are positioned higher up, providing flexible sensing for each scene.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Setup Description -->
   </div>
 </section>
 
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Infrastructure Camera-Lidar</h2>
-          <p>
-            A key component of the dataset is the viewpoint from the observing infrastructure, providing a comprehensive
-            perspective on the environment.
-          </p>
-          <img src="./imgs/VIEW_1.png" alt="Beschreibung des Bildes" style="height: 45%;">
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Stereo Data</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              We provide a high-quality stereo camera system designed for accurate depth perception and 3D imaging,
-              ideal for advanced computer vision applications.
-            </p>
-            <img src="imgs/stereo_disp_view.png" alt="Beschreibung des Bildes" style="height: 72%;">
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
+    <!-- 3d-rgb. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">3D-RGB Pointclouds</h2>
-    <!-- Re-rendering. -->
-        <div class="content has-text-justified">
+        <div class="content">
           <p>
             We offer 3D RGB point clouds generated by integrating data from LiDAR and cameras, providing detailed
             spatial and color information for enhanced scene understanding.
           </p>
         </div>
         <div class="content has-text-centered">
-          <img src="./imgs/3d_rgb_infra_pointcloud.png" alt="Beschreibung des Bildes" style="height: 70%;">
+          <img src="./imgs/3d_rgb_infra_pointcloud.png" alt="RGB Pointcloud from the Infratstructure" style="height: 70%;">
         </div>
-        <!--/ Re-rendering. -->
+        <div class="content has-text-centered">
+          <img src="./imgs/3d_rgb_vehicle_pointcloud.png" alt="RGB Pointcloud from the Infratstructure" style="height: 70%;">
         </div>
+      </div>
     </div>
-    <!--/ Animation. -->
+    <!-- Double Content -->
+    <div class="columns is-centered">
+      <!-- Infra -->
+      <div class="column">
+        <div class="content has-text-justified">
+          <h2 class="title is-3">Infrastructure Camera-Lidar</h2>
+          <p>
+            A key component of the dataset is the viewpoint from the observing infrastructure, providing a comprehensive
+            perspective on the environment.
+          </p>
+          <img src="./imgs/VIEW_1.png" alt="Lidar-Camera projection from Infrastructure 1" style="height: 50%;">
+        </div>
+      </div>
+      <!--/ Infra -->
+      <!-- Stereo -->
+      <div class="column">
+        <div class="content has-text-justified">
+          <h2 class="title is-3">Stereo Data</h2>
+          <p>
+            We provide a high-quality stereo camera system designed for accurate depth perception and 3D imaging,
+            ideal for advanced computer vision applications.
+          </p>
+          <img src="imgs/stereo_disp_view.png" alt="Disparity Image of the Vehicle Front Camera" style="height: 50%;">
+        </div>
+      </div>
+      <!--/ Stereo -->
     </div>
+    <!--/ Double Content -->
+  </div>
 </section>
 
 
