@@ -295,7 +295,7 @@
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="recordings-carousel" class="carousel recordings-carousel">
+      <div id="recordings-carousel" class="carousel recordings-carousel" data-slides-to-show="4">
         <div class="item">
           <img src="./imgs/positions/bus.jpg" alt="Bus Agent 1">
         </div>
@@ -340,11 +340,11 @@
     <div class="columns is-centered">
       <!-- Infra -->
       <div class="column">
+        <h2 class="title is-3">Camera-Lidar Projections</h2>
         <div class="content has-text-justified">
-          <h2 class="title is-3">Infrastructure Camera-Lidar</h2>
           <p>
             A key component of the dataset is the viewpoint from the observing infrastructure, providing a comprehensive
-            perspective on the environment.
+            perspective from the environment. Every color indicates another sensor.
           </p>
           <img src="imgs/VIEW_1_sensors.png" alt="Lidar-Camera projection from Infrastructure 1">
         </div>
@@ -352,11 +352,11 @@
       <!--/ Infra -->
       <!-- Stereo -->
       <div class="column">
+        <h2 class="title is-3">Stereo Disparity Maps</h2>
         <div class="content has-text-justified">
-          <h2 class="title is-3">Stereo Data</h2>
           <p>
-            We provide a high-quality stereo camera system designed for accurate depth perception and 3D imaging,
-            ideal for advanced computer vision applications.
+            We provide a high-quality stereo camera system designed for precise depth perception and 3D imaging
+            (front-facing camera only), all accessible through our research and development kit.
           </p>
           <img src="imgs/stereo_disp_view.png" alt="Disparity Image of the Vehicle Front Camera">
         </div>
