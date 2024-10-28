@@ -241,30 +241,78 @@
       <div class="columns is-centered">
         <div class="column is-two-fifths">
           <div class="content has-text-justified">
-            <h4 class="title is-4">Ego-vehicle (sensor bus):</h4>
+            <h4 class="title is-4">Ego-vehicle:</h4>
             <p>
-              A stereo camera and a top LiDAR are centrally mounted, with the stereo camera located inside the bus, behind
-              the windshield. The top LiDAR has a 45° horizontal FoV, designed to cover the camera's entire view, including
-              above the horizon. Two additional LiDARs, mounted at the front corners, are angled to cover blind spots.
-              An INS, combining GNSS and IMU data, supports navigation, with RTK correction from the sensor tower for
-              precise positioning.
+              Our vehicle agent is a modified Mercedes Sprinter, designed with spacious, bus-like seating and an elevated
+              roof for easy entry and comfortable standing room inside the cabin. Equipped with a complete AD perception
+              sensor suite, it features six cameras arranged for 360° coverage, including a secondary front-facing camera
+              optimized for stereo applications (note: there is no dedicated rear camera). The vehicle is also outfitted
+              with three LiDAR sensors to capture mid- and near-range perspectives and a high-precision INS system
+              (integrating GNSS and IMU with correction data) to ensure accurate localization and navigation data.
             </p>
           </div>
         </div>
         <div class="column is-two-fifths">
           <div class="content has-text-justified">
-            <h4 class="title is-4">Sensor tower:</h4>
+            <h4 class="title is-4">Sensor Tower:</h4>
             <p>
-              The static sensor tower supports interoperability studies with a simple, modular design, featuring a 3-meter
-              pole stabilized by weights. It is powered by batteries and a solar panel and equipped with LTE/5G and a V2X
-              roadside unit for communication. A 360° LiDAR and GNSS antennas are mounted at the top, while two adjustable
-              camera-LiDAR units are positioned higher up, providing flexible sensing for each scene.
+              Our sensor tower shares the same advanced specification as the vehicle agent, serving as a highly adaptable
+              observation unit. It features two movable arms, each mounted with a camera and a solid-state LiDAR unit,
+              alongside a 360° Ouster OS LiDAR (128 rays) positioned at the top for comprehensive coverage. The tower is
+              equipped with a GNSS system and achieves nanosecond-level synchronization with the vehicle’s data stream
+              via PTP, using GNSS-triggered timing. This setup ensures precise alignment of all data within a few
+              milliseconds. Operating independently, the tower relies on a 5G mobile connection, dual 100 Ah (24V)
+              batteries, and a solar panel, making it fully self-sufficient in the field.
             </p>
           </div>
         </div>
       </div>
     </div>
     <!--/ Setup Description -->
+    <!-- Locations. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Locations & Recordings</h2>
+        <div class="content has-text-justified">
+          <p>
+            For our initial "Data Drop," we've gathered data from 11 different locations across Stuttgart, Esslingen,
+            and Waiblingen in Baden-Württemberg, Germany. Each location is precisely mapped in a
+            <a href="https://earth.google.com/earth/d/1Pk4AGiighU9QbSpYQ6eyEZuCGaJJz9oq?usp=sharing" target="_blank">Google Earth project</a>,
+            making it easy to revisit and verify positioning. Given the varying camera placements and angles on our
+            infrastructure towers, each site requires tailored calibration. At each location, a series of defined
+            maneuvers was driven multiple times to ensure consistency. In total, we offer 90 minutes of fully
+            synchronized and anonymized data, with our anonymization process and a comprehensive development report
+            to be made publicly available.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="positions-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <img src="./imgs/positions/bus.jpg" alt="Bus Agent 1" style="height: 100%;">
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./imgs/positions/infra_3.jpg" alt="Infrastructure Tower 1" style="height: 100%;">
+        </div>
+        <div class="item item-shiba">
+          <img src="./imgs/positions/recording_1.jpg" alt="Recording Scene 1" style="height: 100%;">
+        </div>
+        <div class="item item-fullbody">
+          <img src="./imgs/positions/calib.jpg" alt="Calibration per position" style="height: 100%;">
+        </div>
+        <div class="item item-blueshirt">
+          <img src="./imgs/positions/infra_1.jpg" alt="Infrastructure Tower 2" style="height: 100%;">
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -298,7 +346,7 @@
             A key component of the dataset is the viewpoint from the observing infrastructure, providing a comprehensive
             perspective on the environment.
           </p>
-          <img src="imgs/VIEW_1_sensors.png" alt="Lidar-Camera projection from Infrastructure 1" style="height: 50%;">
+          <img src="imgs/VIEW_1_sensors.png" alt="Lidar-Camera projection from Infrastructure 1">
         </div>
       </div>
       <!--/ Infra -->
@@ -310,12 +358,44 @@
             We provide a high-quality stereo camera system designed for accurate depth perception and 3D imaging,
             ideal for advanced computer vision applications.
           </p>
-          <img src="imgs/stereo_disp_view.png" alt="Disparity Image of the Vehicle Front Camera" style="height: 50%;">
+          <img src="imgs/stereo_disp_view.png" alt="Disparity Image of the Vehicle Front Camera">
         </div>
       </div>
       <!--/ Stereo -->
     </div>
     <!--/ Double Content -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Automatic Ground Truth</h2>
+        <div class="content has-text-justified">
+          <p>
+            For our dataset, we are harnessing offline computing power and advancements in foundation model precision to
+            create high-quality, automatic ground truth annotations. By leveraging the ability to move backward and
+            forward through time in frame sequences, we can generate consistent and accurate labels for the 2020s —
+            where we try to minimize the manual effort. Our pipelines and strategies for this automated process will
+            also be made publicly available, providing a transparent look at the tools and methods behind our data.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Spatial Registration</h2>
+        <div class="content has-text-justified">
+          <p>
+            The core purpose of our dataset is precise spatial registration, enabling synchronized alignment between
+            observing and moving agents from a geometric perspective. An upcoming experimental study on our approach
+            will be published soon, showcasing our methodology and findings in the area of Collaborative Perception.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -336,8 +416,18 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="content has-text-centered">
+    <div class="content">
       <!-- Acknowledgement -->
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <h2 class="title is-4">Acknowledgement</h2>
+            <p>Our work has been made possible through the support of the following partners, who provided essential
+              financial backing, industry expertise, and hands-on assistance:
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="sponsors is-flex is-justify-content-center is-align-items-center">
         <a href="https://vm.baden-wuerttemberg.de/en/home" target="_blank">
           <figure class="image" style="margin: 0 20px;">
