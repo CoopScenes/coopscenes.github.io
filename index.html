@@ -204,21 +204,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present our vision and ongoing work for a novel dataset designed to advance research into the interoperability
-            of intelligent vehicles and infrastructure, specifically aimed at enhancing cooperative perception and
-            interaction in the realm of public transportation.
-          </p>
-          <p>
-            Unlike conventional datasets centered on ego-vehicle data, this approach encompasses both a stationary
-            sensor tower and a moving vehicle, each equipped with cameras, LiDARs, and GNSS, while the vehicle additionally
-            includes an inertial navigation system. Our setup features comprehensive calibration and time synchronization,
-            ensuring seamless and accurate sensor data fusion crucial for studying complex, dynamic scenes. Emphasizing
-            public transportation, the dataset targets to include scenes like bus station maneuvers and driving on dedicated
-            bus lanes, reflecting the specifics of small public buses. We introduce the open-source .4mse file format for
-            the new dataset, accompanied by a research kit. This kit provides tools such as ego-motion compensation or
-            LiDAR-to-camera projection enabling advanced research on intelligent vehicle-infrastructure integration. Our
-            approach does not include annotations; however, we plan to implement automatically generated labels sourced
-            from state-of-the-art public repositories.
+            The increasing complexity of urban environments has underscored the potential of effective collective
+            perception systems. To address these challenges, we present the CoopScenes dataset, a large-scale, multi-scene dataset that provides synchronized sensor data from both the ego-vehicle and the supporting infrastructure.
+            The dataset provides 104 minutes of spatially and temporally synchronized data at 10 Hz, resulting in 62,000 frames.
+            It achieves competitive synchronization with a mean deviation of only 2.3 ms.
+            It includes a novel procedure for precise registration of point cloud data from the ego-vehicle and infrastructure sensors, automated annotation pipelines, and an open-source anonymization pipeline for faces and license plates.
+            Covering 9 diverse scenes with 100 maneuvers, the dataset features scenarios such as public transport hubs, city construction sites, and high-speed rural roads across three cities in the Stuttgart region, Germany.
+            The full dataset amounts to 527 GB of data and is provided in the .4mse format and is easily accessible through our comprehensive development kit.
+            By providing precise, large-scale data, CoopScenes facilitates research in collective perception, real-time sensor registration, and cooperative intelligent systems for urban mobility, including machine learning-based approaches.
           </p>
         </div>
       </div>
@@ -275,10 +268,18 @@
         <h2 class="title is-3">Locations & Recordings</h2>
         <div class="content has-text-justified">
           <p>
-            For our initial "Data Drop," we've gathered data from 9 different locations across Stuttgart, Esslingen,
+            For our initial publication we've gathered data from 9 different locations across Stuttgart, Esslingen,
             and Waiblingen in Baden-Württemberg, Germany. Each location is precisely mapped in a
             <a href="https://earth.google.com/earth/d/1Pk4AGiighU9QbSpYQ6eyEZuCGaJJz9oq?usp=sharing" target="_blank">Google Earth project</a>,
-            making it easy to revisit and verify positioning. Given the varying camera placements and angles on our
+            making it easy to revisit and verify positioning.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./imgs/scene_book.png" alt="Scene Book">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Given the varying camera placements and angles on our
             infrastructure towers, each site requires tailored calibration. At each location, a series of defined
             maneuvers was driven multiple times to ensure consistency. In total, we offer around 85 minutes of fully
             synchronized and anonymized data, with our anonymization process and a comprehensive development report
