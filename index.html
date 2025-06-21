@@ -52,7 +52,7 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://ameise.wandelgesellschaft.de/">
+      <a class="navbar-item" href="https://https://coopscenes.github.io//">
       <span class="icon">
           <i class="fas fa-home"></i>
       </span>
@@ -156,7 +156,8 @@
                 </a>
               </span>
             <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-bright">
+                <a href="https://1drv.ms/f/c/69c8534e98c84312/ErojGrj-b0NNrFFWif97dgABH6NnEGkGOxdK9emiN_TJeQ?e=gtFCks" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-database"></i>
                   </span>
@@ -191,6 +192,12 @@
         <div class="item">
           <img src="./imgs/BACK_LEFT.png" alt="Back left view">
         </div>
+        <div class="item">
+          <img src="./imgs/VIEW_1.png" alt="Back left view">
+        </div>
+        <div class="item">
+          <img src="./imgs/VIEW_2.png" alt="Back left view">
+        </div>
       </div>
     </div>
   </div>
@@ -213,6 +220,9 @@
             The full dataset amounts to 527 GB of data and is provided in the .4mse format and is easily accessible through our comprehensive development kit.
             By providing precise, large-scale data, CoopScenes facilitates research in collective perception, real-time sensor registration, and cooperative intelligent systems for urban mobility, including machine learning-based approaches.
           </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./imgs/Dataset_comparison.png" alt="Datasets">
         </div>
       </div>
     </div>
@@ -376,18 +386,23 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Automatic Ground Truth</h2>
         <div class="content has-text-justified">
           <p>
-            For our dataset, we are harnessing offline computing power and advancements in foundation model precision to
-            create high-quality, automatic ground truth annotations. By leveraging the ability to move backward and
-            forward through time in frame sequences, we can generate consistent and accurate labels for the 2020s —
-            where we try to minimize the manual effort. Our pipelines and strategies for this automated process will
-            also be made publicly available, providing a transparent look at the tools and methods behind our data.
+            <!-- Abstract. -->
+            To ensure scalability, CoopScenes integrates automated annotation and anonymization pipelines. The dataset
+            focuses on infrastructure–vehicle interoperability and includes 5.54 million detected instances, averaging
+            12.3 objects per frame. Initial 2D annotations were generated using a Co-DETR model, achieving 90.6% precision
+            and 89.2% recall for vehicles. For anonymization, we publish BlurScene, a Faster R-CNN-based model that
+            outperforms EgoBlur with 96% recall for faces and 98% for license plates, while maintaining minimal visual
+            impact. The model, code, and weights are freely available for research use. Future releases will add 3D labels
+            and improved pipelines.
           </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./imgs/reference_labels.png" alt="Reference-Labels">
         </div>
       </div>
     </div>
@@ -396,9 +411,23 @@
         <h2 class="title is-3">Spatial Registration</h2>
         <div class="content has-text-justified">
           <p>
-            The core purpose of our dataset is precise spatial registration, enabling synchronized alignment between
-            observing and moving agents from a geometric perspective. An upcoming experimental study on our approach
-            will be published soon, showcasing our methodology and findings in the area of Collaborative Perception.
+            To enable sensor interoperation, all sensors are extrinsically calibrated relative to a designated agent origin—either
+            the vehicle's top sensor or the tower—reducing the problem to a single inter-agent transformation.
+            Using the tower as the global origin, we estimate the inter-agent transformation via LiDAR-based KISS-ICP,
+            supported by Fast Point Feature Histograms (FPFH). Initial alignment is selected from GNSS-proximal frames using
+            RANSAC and refined with ICP, then clustered with DBSCAN. Transformations are propagated, enabling estimates
+            even without direct sensor overlap. Reliable transformations are refined per frame; others are interpolated
+            from odometry, assuming a static tower.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./imgs/projection.png" alt="Camera-LiDAR-Projection">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Quantitative evaluation of cross-agent point cloud projections onto images is challenging; therefore, we focus
+            on qualitative assessments. As shown, even under challenging conditions—such as high speeds and distant
+            objects—the projections exhibit competitive alignment quality.
           </p>
         </div>
       </div>
@@ -408,11 +437,26 @@
         <h2 class="title is-3">Anonymization</h2>
         <div class="content has-text-justified">
           <p>
-            We are excited to present our dataset, with a key focus on anonymization to protect privacy. However, recent
-            studies have raised questions about whether object detectors trained on anonymized data perform as
-            effectively on real-world data. To address this, we explored new anonymization methods beyond simple
-            blurring. On this website, we will detail the techniques we used and share the code publicly to
-            support further research and reproducibility.
+            We are pleased to present our dataset, with a strong emphasis on anonymization to ensure privacy protection.
+            Recent research has questioned whether object detectors trained on anonymized data perform comparably to those
+            trained on unaltered data. To address this concern, we developed BlurScene, a face and license plate detector
+            based on Faster R-CNN, available at
+            <a href="https://github.com/CoopScenes/BlurScene" target="_blank">github.com/CoopScenes/BlurScene</a>.
+            Trained on publicly available datasets and evaluated on our labeled CoopScenes test set, BlurScene distinguishes
+            between identifiable and non-identifiable instances to optimize the balance between privacy and utility.
+            Although the model prioritizes high recall, we selected an operating point optimized for precision to minimize
+            unnecessary blur.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./imgs/BlurScene_unnessecaryBlur.png" alt="BlurScene-Curve">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Currently, anonymization is applied using an adaptive mosaic filter for a more natural appearance. We are
+            actively exploring advanced anonymization through style transfer techniques such as StyleCLIP, CycleGAN,
+            and DeepPrivacy2. Until then, all code, data, and development strategies are open source—and we welcome
+            contributions from the community.
           </p>
         </div>
       </div>
@@ -425,11 +469,11 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{vosshans2024aeifdatacollectiondataset,
-  author    = {Marcel Vosshans and Alexander Baumann and Matthias Drueppel and Omar Ait-Aider and Ralf Woerner and Youcef Mezouar and Thao Dang and Markus Enzweiler},
-  title     = {The AEIF Data Collection: A Dataset for Infrastructure-Supported Perception Research with Focus on Public Transportation},
+    <pre><code>@misc{vosshans2025coopscenes,
+  author    = {Marcel Vosshans and Alexander Baumann and Matthias Drueppel and Omar Ait-Aider and Youcef Mezouar and Thao Dang and Markus Enzweiler},
+  title     = {CoopScenes: Multi-Scene Infrastructure and Vehicle Data for Advancing Collective Perception in Autonomous Driving},
   url       = {https://arxiv.org/abs/2407.08261},
-  year      = {2024},
+  year      = {2025},
 }</code></pre>
   </div>
 </section>
@@ -472,7 +516,7 @@
         </a>
         <a href="https://company.softing.com/" target="_blank">
           <figure class="image" style="margin: 0 20px;">
-            <img src="static/images/softing_logo.svg" alt="Softing">
+            <img src="static/images/kaitos_logo.jpg" alt="Softing">
           </figure>
         </a>
       </div>
