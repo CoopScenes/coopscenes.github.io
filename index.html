@@ -341,13 +341,13 @@
         <div class="content has-text-justified">
           <p>
             <!-- Abstract. -->
-            To ensure scalability, CoopScenes integrates automated annotation and anonymization pipelines. The dataset
-            focuses on infrastructure–vehicle interoperability and includes 5.54 million detected instances, averaging
-            12.3 objects per frame. Initial 2D annotations were generated using a Co-DETR model, achieving 90.6% precision
-            and 89.2% recall for vehicles. For anonymization, we publish BlurScene, a Faster R-CNN-based model that
-            outperforms EgoBlur with 96% recall for faces and 98% for license plates, while maintaining minimal visual
-            impact. The model, code, and weights are freely available for research use. Future releases will add 3D labels
-            and improved pipelines.
+            Since we are a small lab with limited resources and labeling is cost-intensive, we explored scalable alternatives
+            through automated annotation and anonymization pipelines. Rather than focusing on traditional detection benchmarks,
+            CoopScenes emphasizes infrastructure-vehicle interoperability. Using offline foundation models like
+            <a href="https://github.com/Sense-X/Co-DETR" target="_blank">Co-DETR</a>,
+            we generated high-quality 2D instance labels, achieving an F1-score of 89.4% for vehicles. The dataset
+            includes over 5.5 million detected instances and will be extended with 3D labels and hand-annotated subsets
+            to support benchmarking and further model development.
           </p>
         </div>
         <div class="content has-text-centered">
@@ -362,8 +362,11 @@
           <p>
             To enable sensor interoperation, all sensors are extrinsically calibrated relative to a designated agent origin—either
             the vehicle's top sensor or the tower—reducing the problem to a single inter-agent transformation.
-            Using the tower as the global origin, we estimate the inter-agent transformation via LiDAR-based KISS-ICP,
-            supported by Fast Point Feature Histograms (FPFH). Initial alignment is selected from GNSS-proximal frames using
+            Using the tower as the global origin, we estimate the inter-agent transformation via LiDAR-based
+            <a href="https://github.com/PRBonn/kiss-icp" target="_blank">KISS-ICP</a>,
+            supported by
+            <a href="https://ieeexplore.ieee.org/document/5152473" target="_blank">Fast Point Feature Histograms (FPFH)</a>.
+            Initial alignment is selected from GNSS-proximal frames using
             RANSAC and refined with ICP, then clustered with DBSCAN. Transformations are propagated, enabling estimates
             even without direct sensor overlap. Reliable transformations are refined per frame; others are interpolated
             from odometry, assuming a static tower.
@@ -390,8 +393,8 @@
             Recent research has questioned whether object detectors trained on anonymized data perform comparably to those
             trained on unaltered data. To address this concern, we developed BlurScene, a face and license plate detector
             based on Faster R-CNN, available at
-            <a href="https://github.com/CoopScenes/BlurScene" target="_blank">github.com/CoopScenes/BlurScene</a>.
-            Trained on publicly available datasets and evaluated on our labeled CoopScenes test set, BlurScene distinguishes
+            <a href="https://github.com/CoopScenes/BlurScene" target="_blank">github</a>.
+            Trained on publicly available datasets and evaluated on our labeled CoopScenes test set, we distinguished
             between identifiable and non-identifiable instances to optimize the balance between privacy and utility.
             Although the model prioritizes high recall, we selected an operating point optimized for precision to minimize
             unnecessary blur.
@@ -403,9 +406,11 @@
         <div class="content has-text-justified">
           <p>
             Currently, anonymization is applied using an adaptive mosaic filter for a more natural appearance. We are
-            actively exploring advanced anonymization through style transfer techniques such as StyleCLIP, CycleGAN,
-            and DeepPrivacy2. Until then, all code, data, and development strategies are open source—and we welcome
-            contributions from the community.
+            actively exploring advanced anonymization through style transfer techniques such as
+            <a href="https://github.com/orpatashnik/StyleCLIP" target="_blank">StyleCLIP</a>,
+            <a href="https://junyanz.github.io/CycleGAN/" target="_blank">CycleGAN</a>,
+            and <a href="https://github.com/hukkelas/deep_privacy2" target="_blank">DeepPrivacy2</a>.
+            Until then, all code, data, and development strategies are open source—and we welcome contributions from the community.
           </p>
         </div>
       </div>
@@ -419,7 +424,7 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">3D-RGB Pointclouds</h2>
-        <div class="content">
+        <div class="content has-text-justified">
           <p>
             We offer 3D RGB point clouds generated by integrating data from LiDAR and cameras, providing detailed
             spatial and color information for enhanced scene understanding.
