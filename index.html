@@ -220,6 +220,9 @@
             The full dataset amounts to 527 GB of data and is provided in the .4mse format and is easily accessible through our comprehensive development kit.
             By providing precise, large-scale data, CoopScenes facilitates research in collective perception, real-time sensor registration, and cooperative intelligent systems for urban mobility, including machine learning-based approaches.
           </p>
+          <p>
+            <em>Note: We are currently evaluating improved cloud storage options and will soon release BlurScenes weights and the 2D hand-labeled set.</em>
+          </p>
         </div>
         <div class="content has-text-centered">
           <img src="./imgs/Dataset_comparison.png" alt="Datasets">
@@ -343,11 +346,12 @@
             <!-- Abstract. -->
             Since we are a small lab with limited resources and labeling is cost-intensive, we explored scalable alternatives
             through automated annotation and anonymization pipelines. Rather than focusing on traditional detection benchmarks,
-            CoopScenes emphasizes infrastructure-vehicle interoperability. Using offline foundation models like
+            CoopScenes emphasizes infrastructure-vehicle interoperability. Using mighty offline Transformer models like
             <a href="https://github.com/Sense-X/Co-DETR" target="_blank">Co-DETR</a>,
-            we generated high-quality 2D instance labels, achieving an F1-score of 89.4% for vehicles (Note: The test set is meticulously
-            hand-labeled and may not align perfectly with the model’s output format). The dataset includes over 5.5 million detected instances and will be extended
-            with 3D labels and hand-annotated subsets to support benchmarking and further model development.
+            we generated high-quality 2D instance labels, achieving an F1-score of 89.4% (try to beat that ;D) for vehicles (Note: The test set is meticulously
+            hand-labeled and may not align perfectly with the model’s output format). The dataset includes over 5.5 million
+            detected instances and will be extended with 3D labels and hand-annotated subsets to support benchmarking and
+            further model development.
           </p>
         </div>
         <div class="content has-text-centered">
